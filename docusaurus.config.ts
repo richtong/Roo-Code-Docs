@@ -283,6 +283,13 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     image: 'img/social-share.jpg', // Default Open Graph image
+    // Redirect legacy /community path to Roocabulary repo
+    redirects: [
+      {
+        from: ['/community', '/community/'],
+        to: 'https://github.com/cannuri/Roocabulary',
+      },
+    ],
     navbar: {
       logo: {
         alt: 'Roo Code Logo',

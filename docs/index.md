@@ -73,6 +73,10 @@ Make Roo Code work your way with:
 - [Advanced Features](/features/auto-approving-actions)
 - [Frequently Asked Questions](/faq)
 
+### Roocabulary
+- Explore the community glossary and fun Roo terminology at the Roocabulary repository:
+  - https://github.com/cannuri/Roocabulary
+
 ### Community & Socials
 - **Discord:** [Join our Discord server](https://discord.gg/roocode) for real-time help and discussions.
 - **Reddit:** [Visit our subreddit](https://www.reddit.com/r/RooCode) to share experiences and tips.
