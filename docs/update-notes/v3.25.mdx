@@ -17,53 +17,50 @@ This patch release improves message queueing with image support, increases Claud
 
 ### Quality of Life Improvements
 
-* **Message Queueing**: You can now queue messages with images, making it easier to prepare multiple image-based requests
-* **Claude Code Output**: Increased default max output tokens to 16k for more comprehensive responses
-* **Slash Commands Documentation**: Added documentation link for slash commands to improve discoverability
-* **Cleaner UI**: Hidden Gemini checkboxes on the welcome view for a cleaner interface
-* **Tool Clarity**: Clarified apply_diff tool descriptions to emphasize surgical edits
+* **Message Queueing with Images**: You can now queue messages with images, making it easier to prepare multiple image-based requests ([#6414](https://github.com/RooCodeInc/Roo-Code/pull/6414))
+* **Claude Code Output Expansion**: Increased default max output tokens to 16k for more comprehensive responses (thanks bpeterson1991, app/roomote!) ([#6312](https://github.com/RooCodeInc/Roo-Code/pull/6312))
+* **Slash Commands Documentation**: Added documentation link for slash commands to improve discoverability ([#6409](https://github.com/RooCodeInc/Roo-Code/pull/6409))
+* **Cleaner Welcome Interface**: Hidden Gemini checkboxes on the welcome view for a cleaner interface ([#6415](https://github.com/RooCodeInc/Roo-Code/pull/6415))
+* **Tool Description Clarity**: Clarified apply_diff tool descriptions to emphasize surgical edits ([#6278](https://github.com/RooCodeInc/Roo-Code/pull/6278))
 
 ### Bug Fixes
 
-* **Input Preservation**: Fixed issue where clicking chat buttons would clear the input field
+* **Input Field Preservation**: Fixed issue where clicking chat buttons would clear the input field (thanks hassoncs!) ([#6222](https://github.com/RooCodeInc/Roo-Code/pull/6222))
 
 ### Misc. Improvements
 
-* **PR Reviewer Updates**: Updated PR reviewer rules and mode configuration
-* **Translation Automation**: Added translation check action to pull_request.opened event
-* **Extension Title**: Removed "(prev Roo Cline)" from extension title in all languages
-* **PR Rules Cleanup**: Removed event types mention from PR reviewer rules
+* **PR Reviewer Updates**: Updated PR reviewer rules and mode configuration (thanks daniel-lxs!) ([#6391](https://github.com/RooCodeInc/Roo-Code/pull/6391))
+* **Translation Automation**: Added translation check action to pull_request.opened event (thanks app/roomote!) ([#6393](https://github.com/RooCodeInc/Roo-Code/pull/6393))
+* **Extension Title Cleanup**: Removed "(prev Roo Cline)" from extension title in all languages (thanks app/roomote!) ([#6426](https://github.com/RooCodeInc/Roo-Code/pull/6426))
+* **PR Rules Cleanup**: Removed event types mention from PR reviewer rules (thanks daniel-lxs!) ([#6428](https://github.com/RooCodeInc/Roo-Code/pull/6428))
 
 ## 3.25.2 (2025-07-29)
 
 This patch release fixes critical issues with command highlighting and improves shell command validation.
 
+### Quality of Life Improvements
+
+* **Slash Command Icon Hover State**: Fixed the hover state for the slash command icon to provide better visual feedback during interactions ([#6388](https://github.com/RooCodeInc/Roo-Code/pull/6388))
+
 ### Bug Fixes
 
-* **Command Highlighting**: Fixed zap hover state for better visual feedback
-* **Subshell Validation**: Improved handling and validation of complex shell commands with subshells
+* **Diff View Display**: Fixed an issue where the diff view wasn't showing before approval when background edits were disabled ([#6386](https://github.com/RooCodeInc/Roo-Code/pull/6386))
 
 ### Misc. Improvements
 
-* **Type Updates**: Updated VS Code types to version 1.40.0 for better compatibility
+* **Organization MCP Controls**: Added support for managing MCP servers at the organization level, allowing centralized configuration across teams ([#6378](https://github.com/RooCodeInc/Roo-Code/pull/6378))
 
 ## 3.25.1 (2025-07-29)
 
-This patch release improves subshell validation and fixes diff view display issues.
-
-### Bug Fixes
-
-* **Subshell Validation**: Enhanced validation for complex shell commands with command substitution patterns
-* **Diff View Display**: Fixed issue where diff view wasn't showing before approval when background edits were disabled
+This patch release adds a powerful new AI model to the Chutes AI provider and improves command execution reliability.
 
 ### Provider Updates
 
-* **Chutes AI**: Added GLM-4.5-Air model support with 151K token context window
+* **GLM-4.5-Air Model**: Added support for the GLM-4.5-Air model with 151K token context window for complex reasoning tasks and large codebase analysis - completely free to use (thanks matbgn!) ([#6377](https://github.com/RooCodeInc/Roo-Code/pull/6377))
 
-### Misc. Improvements
+### Quality of Life Improvements
 
-* **Organization MCP Controls**: Added cloud support for managing MCP servers at the organization level
-* **Documentation Updates**: Updated docs extractor mode configuration and rules
+* **Subshell Validation**: Improved handling and validation of complex shell commands with subshells, preventing potential errors when using command substitution patterns ([#6379](https://github.com/RooCodeInc/Roo-Code/pull/6379))
 
 ## 3.25.0 (2025-07-29)
 
@@ -134,8 +131,6 @@ Small changes that make a big difference in your daily workflow:
 * **Sticky Task Modes**: Tasks remember their last-used mode and restore it automatically ([#6177](https://github.com/RooCodeInc/Roo-Code/pull/6177))
 * **ESC Key Support**: Close popovers with ESC for better keyboard navigation ([#6175](https://github.com/RooCodeInc/Roo-Code/pull/6175))
 * **Improved Command Highlighting**: Only valid commands are highlighted in the input field ([#6336](https://github.com/RooCodeInc/Roo-Code/pull/6336))
-* **Subshell Validation**: Improved handling and validation of complex shell commands with subshells, preventing potential errors when using command substitution patterns
-* **Slash Command Icon Hover State**: Fixed the hover state for the slash command icon to provide better visual feedback during interactions
 
 ### Bug Fixes
 
@@ -152,12 +147,10 @@ Critical fixes that improve stability and compatibility:
 * **Command Highlighting Fix**: Fixed inconsistent slash command highlighting behavior ([#6325](https://github.com/RooCodeInc/Roo-Code/pull/6325))
 * **Text Wrapping**: Fixed text overflow for long command patterns in permissions UI ([#6255](https://github.com/RooCodeInc/Roo-Code/pull/6255))
 * **Cross-Platform Mode Export**: Windows path separators now convert correctly for Unix systems ([#6308](https://github.com/RooCodeInc/Roo-Code/pull/6308))
-* **Diff View Display**: Fixed an issue where the diff view wasn't showing before approval when background edits were disabled
 
 ### Provider Updates
 
 * **Prompt Caching for LiteLLM**: Reduce API costs and improve response times with caching support for Claude 3.5 Sonnet and compatible models (thanks MuriloFP, steve-gore-snapdocs!) ([#6074](https://github.com/RooCodeInc/Roo-Code/pull/6074))
-* **GLM-4.5-Air Model**: Added support for the GLM-4.5-Air model with 151K token context window for complex reasoning tasks and large codebase analysis - completely free to use (thanks matbgn!)
 
 ### Misc. Improvements
 
@@ -166,4 +159,3 @@ Critical fixes that improve stability and compatibility:
 * **Contributor Updates**: Refreshed contributor acknowledgments across all localizations ([#6302](https://github.com/RooCodeInc/Roo-Code/pull/6302))
 * **Release Engineering**: Converted release engineer role to slash command for easier releases ([#6333](https://github.com/RooCodeInc/Roo-Code/pull/6333))
 * **PR Reviewer Improvements**: Made PR reviewer mode generic for any GitHub repository ([#6357](https://github.com/RooCodeInc/Roo-Code/pull/6357), [#6328](https://github.com/RooCodeInc/Roo-Code/pull/6328), [#6324](https://github.com/RooCodeInc/Roo-Code/pull/6324))
-* **Organization MCP Controls**: Added support for managing MCP servers at the organization level, allowing centralized configuration across teams
