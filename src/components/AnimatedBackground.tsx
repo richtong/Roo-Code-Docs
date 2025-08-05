@@ -1,15 +1,42 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function AnimatedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const [isEnabled, setIsEnabled] = useState(true)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
 
   useEffect(() => {
+    // Check for user preference in localStorage
+    const savedPreference = localStorage.getItem('animatedBackgroundEnabled')
+    if (savedPreference !== null) {
+      setIsEnabled(savedPreference === 'true')
+    }
+
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    setPrefersReducedMotion(mediaQuery.matches)
+    
+    const handleMotionPreferenceChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches)
+    }
+    
+    mediaQuery.addEventListener('change', handleMotionPreferenceChange)
+    
+    return () => {
+      mediaQuery.removeEventListener('change', handleMotionPreferenceChange)
+    }
+  }, [])
+
+  useEffect(() => {
+    // Don't render animation if disabled or user prefers reduced motion
+    if (!isEnabled || prefersReducedMotion) return
+
     const canvas = canvasRef.current
     if (!canvas) return
 
-    const ctx = canvas.getContext("2d")
+    const ctx = canvas.getContext("2d", { alpha: false })
     if (!ctx) return
 
     // Grid settings - exact values from roocode.com
@@ -32,9 +59,9 @@ export function AnimatedBackground() {
       },
     ]
 
-    // Particle system - exact configuration
+    // Particle system - reduced particle count for better performance
     const particles: Particle[] = []
-    const particleCount = Math.min(50, Math.floor(window.innerWidth / 40))
+    const particleCount = Math.min(30, Math.floor(window.innerWidth / 60))
 
     // Set canvas dimensions
     const resizeCanvas = () => {
@@ -236,16 +263,22 @@ export function AnimatedBackground() {
 
     // Animation loop
     let animationId: number
+    let frameCount = 0
 
     // Target position for smooth following
     let targetX = canvas.width * 0.2
     let targetY = canvas.height * 0.3
     const moveSpeed = 0.05 // Exact speed from roocode.com
 
-    // Move gradient points with mouse
+    // Move gradient points with mouse - throttled for performance
+    let mouseThrottle = false
     const handleMouseMove = (e: MouseEvent) => {
-      targetX = e.clientX
-      targetY = e.clientY
+      if (!mouseThrottle) {
+        targetX = e.clientX
+        targetY = e.clientY
+        mouseThrottle = true
+        setTimeout(() => { mouseThrottle = false }, 50) // Throttle to 20fps
+      }
     }
 
     // Update gradient point position in animation loop
@@ -270,8 +303,13 @@ export function AnimatedBackground() {
 
     function animate() {
       animationId = requestAnimationFrame(animate)
-      updateGradientPosition()
-      drawGrid()
+      frameCount++
+      
+      // Skip every other frame for better performance (30fps instead of 60fps)
+      if (frameCount % 2 === 0) {
+        updateGradientPosition()
+        drawGrid()
+      }
     }
 
     animate()
@@ -283,7 +321,12 @@ export function AnimatedBackground() {
       window.removeEventListener("mousemove", handleMouseMove)
       cancelAnimationFrame(animationId)
     }
-  }, [])
+  }, [isEnabled, prefersReducedMotion])
+
+  // Don't render canvas if animation is disabled
+  if (!isEnabled || prefersReducedMotion) {
+    return null
+  }
 
   return <canvas
     ref={canvasRef}
@@ -294,7 +337,8 @@ export function AnimatedBackground() {
       width: '100%',
       height: '100%',
       zIndex: -1,
-      pointerEvents: 'none'
+      pointerEvents: 'none',
+      willChange: 'transform' // Hint for GPU optimization
     }}
   />
 }
