@@ -49,9 +49,13 @@ You'll find these settings in the Roo Code settings panel (click the <Codicon na
 
 ---
 
-## Supported Models (for OpenAI Native Endpoint)
+## Available Models
 
-While this provider type allows connecting to various endpoints, if you are connecting directly to the official OpenAI API (or an endpoint mirroring it exactly), Roo Code recognizes the following model IDs based on the `openAiNativeModels` definition in its source code:
+The models available through OpenAI-compatible endpoints vary depending on the provider you're using. Each provider offers different models with their own capabilities and pricing.
+
+### Example Models
+
+When connecting to the official OpenAI API endpoint, you might use models such as:
 
 *   `o3-mini`
 *   `o3-mini-high`
@@ -63,7 +67,14 @@ While this provider type allows connecting to various endpoints, if you are conn
 *   `gpt-4o`
 *   `gpt-4o-mini`
 
-**Note:** If you are using a different OpenAI-compatible provider (like Together AI, Anyscale, etc.), the available model IDs will vary. Always refer to your specific provider's documentation for their supported model names.
+**Important:** These are just examples from OpenAI's offerings. The actual models available to you will depend entirely on your chosen provider:
+
+*   **Together AI** might offer models like `meta-llama/Llama-2-70b-chat-hf`, `mistralai/Mixtral-8x7B-Instruct-v0.1`, etc.
+*   **Perplexity** might offer models like `pplx-7b-online`, `pplx-70b-online`, etc.
+*   **Anyscale** might offer various open-source models they host
+*   **Custom endpoints** will have their own unique model offerings
+
+**Always consult your provider's documentation** for the complete list of available models, their exact model IDs, capabilities, and pricing. The model ID you enter in Roo Code must match exactly what your provider expects.
 
 ---
 
