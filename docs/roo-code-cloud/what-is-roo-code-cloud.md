@@ -1,5 +1,5 @@
 ---
-description: Discover Roo Code Cloud, the web platform that extends your Roo Code extension with cloud features for collaboration, persistence, and analytics.
+description: Discover Roo Code Cloud, the web platform that extends your Roo Code extension with cloud features for collaboration, sharing, and analytics.
 keywords:
   - Roo Code Cloud
   - AI development platform
@@ -12,7 +12,7 @@ image: /img/social-share.jpg
 
 # What is Roo Code Cloud?
 
-Roo Code Cloud is a web-based platform that extends your Roo Code extension with cloud-powered features for enhanced collaboration, data persistence, and usage tracking. By connecting your local Roo Code extension to the cloud, you unlock powerful capabilities that transform how you work with AI-assisted development.
+Roo Code Cloud is a web-based platform that extends your Roo Code extension with cloud-powered features for enhanced collaboration, task sharing, and usage tracking. By connecting your local Roo Code extension to the cloud, you unlock powerful capabilities that transform how you work with AI-assisted development.
 
 ## Key Benefits
 
@@ -27,8 +27,8 @@ When you connect to Roo Code Cloud, you gain access to:
 ### 🔗 Seamless Integration
 Connect your Roo Code extension directly to the cloud with simple authentication through GitHub, Google, or email. No complex setup required.
 
-### 📚 Persistent Task History
-Your conversations and tasks are automatically synced to the cloud, ensuring you never lose important work. Access your complete development history from any device.
+### 📚 Online Task History
+Your conversations and tasks are automatically synced to the cloud for easy access. View your complete development history from any device through the web dashboard.
 
 ### 🚀 Task Sharing
 Share individual tasks with colleagues, collaborators, or the community through secure, expiring links. Perfect for:
@@ -64,4 +64,4 @@ Access a comprehensive web interface at [app.roocode.com](https://app.roocode.co
 - **Expiring Links** - Share links automatically expire in 30 days for enhanced security
 - **Data Control** - Full control over your shared content with the ability to revoke access anytime
 
-Roo Code Cloud transforms your local AI development assistant into a collaborative, persistent, and analytically-rich platform while maintaining the security and privacy of your development work.
+Roo Code Cloud transforms your local AI development assistant into a collaborative and analytically-rich platform while maintaining the security and privacy of your development work.
