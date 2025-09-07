@@ -24,6 +24,13 @@ Generate new images from text prompts or edit existing images in your workspace.
 Image Generation is an experimental feature that requires enabling in settings and configuring an OpenRouter API key.
 :::
 
+## Quick Start
+
+1. Enable Image Generation in Settings > Experimental and save your OpenRouter API key.
+2. Switch to any coding model you prefer (e.g., Claude 3.7 Sonnet, Gemini Pro, GPT-5 mini).
+3. In chat, type an explicit instruction to create an image (for example: "Generate an image of a low-poly kangaroo mascot on a dark background").
+4. Approve the action and choose a save path (e.g., `images/kangaroo.png`). Roo saves the file and shows a preview.
+
 ---
 
 ## Key Features
@@ -53,6 +60,13 @@ Image Generation is an experimental feature that requires enabling in settings a
 
 ## How It Works
 
+### Simple Flow
+- Turn on Image Generation and set your OpenRouter API key.
+- Use any coding model; Roo exposes an Image tool to the model.
+- When you instruct "Generate an image …", Roo enhances the prompt and invokes that tool, which calls the Gemini 2.5 Flash Image Preview model via OpenRouter.
+- Roo writes the resulting image to your chosen path and shows a preview in the chat.
+
+### Behind the Scenes
 When enabled, Roo sends your prompt (and optionally an existing image) to an image-capable model through OpenRouter. The generated or edited image returned by OpenRouter is saved to the path you specify inside your current workspace. Roo shows a preview in the chat and the file appears in your file explorer.
 
 ---
@@ -86,10 +100,15 @@ When enabled, Roo sends your prompt (and optionally an existing image) to an ima
 
 ## Using Image Generation
 
-1. In chat, ask Roo to generate an image and describe what you want (subject, style, lighting, composition).
+1. In chat, instruct Roo to generate an image and specify clear characteristics (subject, style, lighting, composition, aspect ratio).
 2. Confirm the action when prompted. Roo may ask you to choose a save path (for example: `images/sunset.png`).
 3. Roo generates the image and saves it. If you don't include an extension, the appropriate extension (.png or .jpg) is added based on the output format.
 4. See the image preview in the chat and locate the file in your workspace.
+
+### Example Prompts
+- Create an image of a friendly low-poly kangaroo mascot on a dark gradient background, 1024x1024 PNG.
+- Generate a watercolor illustration of a mountain lake at sunrise with light mist, soft lighting, pastel palette, 16:9 aspect ratio.
+- Example using GPT-5 mini: Generate an image of a retro terminal wallpaper with green phosphor glow and subtle scanlines, minimal noise, 3840x2160.
 
 ---
 
