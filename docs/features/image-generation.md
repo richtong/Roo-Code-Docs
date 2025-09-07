@@ -82,12 +82,14 @@ When enabled, Roo sends your prompt (and optionally an existing image) to an ima
 - **Default:** Gemini 2.5 Flash Image Preview
 - **Available Models:** Currently limited to Gemini 2.5 Flash Image Preview and its free variant
 
+> Note: Image generation currently runs via Gemini 2.5 Flash Image Preview on OpenRouter, regardless of the chat model you’re using to converse with Roo. The chat model only needs to support tool use.
+
 ---
 
 ## Using Image Generation
 
 1. In chat, ask Roo to generate an image and describe what you want (subject, style, lighting, composition).
-2. Confirm the action when prompted. Roo may ask you to choose a save path (for example: `images/sunset.png`).
+2. Approve the action. Specify a save path in your instruction (or accept the suggested path), for example: `images/sunset.png`.
 3. Roo generates the image and saves it. If you don't include an extension, the appropriate extension (.png or .jpg) is added based on the output format.
 4. See the image preview in the chat and locate the file in your workspace.
 
