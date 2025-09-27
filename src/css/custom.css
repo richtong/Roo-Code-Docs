@@ -1176,15 +1176,23 @@ body {
 /* Docusaurus Search Box - Dark Theme Styling */
 .navbar__search-input {
   background: none;
-  background-color: hsl(var(--background) / 0.5) !important;
-  border: 1px solid hsl(var(--border) / 0.5) !important;
+  background-color: hsl(var(--background) / 0.9) !important; /* Increased opacity for better visibility */
+  border: 1px solid hsl(var(--border) / 0.8) !important; /* More visible border */
   border-radius: calc(var(--radius) + 4px) !important;
   color: hsl(var(--foreground)) !important;
   font-size: 0.875rem !important;
   padding: 0.5rem 1rem !important;
   transition: all 200ms ease !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  /* Removed backdrop-filter for better Safari compatibility */
+}
+
+/* Safari-specific fixes for better visibility */
+@supports (-webkit-touch-callout: none) {
+  .navbar__search-input {
+    background-color: hsl(var(--background) / 0.95) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    -webkit-appearance: none; /* Remove Safari default styling */
+  }
 }
 
 /* Search box hover and focus states */
@@ -1220,19 +1228,27 @@ body {
 
 /* If using Algolia DocSearch */
 .DocSearch-Button {
-  background: hsl(var(--background) / 0.5) !important;
-  border: 1px solid hsl(var(--border) / 0.5) !important;
+  background: hsl(var(--background) / 0.9) !important; /* Increased opacity */
+  border: 1px solid hsl(var(--border) / 0.8) !important; /* More visible border */
   border-radius: calc(var(--radius) + 4px) !important;
   color: hsl(var(--muted-foreground)) !important;
   font-size: 0.875rem !important;
   padding: 0 1rem !important;
   height: 36px !important;
   transition: all 200ms ease !important;
-  backdrop-filter: blur(16px) !important;
-  -webkit-backdrop-filter: blur(16px) !important;
+  /* Removed backdrop-filter for better Safari compatibility */
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+}
+
+/* Safari-specific fixes for DocSearch button */
+@supports (-webkit-touch-callout: none) {
+  .DocSearch-Button {
+    background: hsl(var(--background) / 0.95) !important;
+    border: 1px solid hsl(var(--border)) !important;
+    -webkit-appearance: none;
+  }
 }
 
 /* Center the search icon when button is minimized */
@@ -1305,12 +1321,23 @@ body {
 
 /* Mobile responsive search button centering */
 @media (max-width: 768px) {
+  /* Make the search button much larger on mobile */
   .DocSearch-Button {
-    width: 40px !important;
-    height: 40px !important;
-    padding: 0 !important;
-    min-width: 40px !important;
+    width: auto !important; /* Allow button to expand */
+    min-width: 120px !important; /* Minimum width for visibility */
+    height: 44px !important; /* iOS recommended minimum tap target */
+    padding: 0 16px !important; /* Add horizontal padding */
     justify-content: center !important;
+    background: hsl(var(--background) / 0.95) !important; /* More opaque on mobile */
+    border: 2px solid hsl(var(--border)) !important; /* Thicker border for visibility */
+    font-size: 16px !important; /* Larger font size */
+  }
+  
+  /* Show "Search" text on mobile for better visibility */
+  .DocSearch-Button-Placeholder {
+    display: inline !important;
+    font-size: 16px !important;
+    color: hsl(var(--foreground)) !important;
   }
   
   .DocSearch-Button-Container {
@@ -1324,6 +1351,37 @@ body {
   /* Hide keys on mobile */
   .DocSearch-Button-Keys {
     display: none !important;
+  }
+  
+  /* Ensure search icon is visible and larger on mobile Safari */
+  .DocSearch-Search-Icon {
+    color: hsl(var(--foreground)) !important;
+    opacity: 1 !important;
+    width: 24px !important; /* Larger icon */
+    height: 24px !important;
+    margin-right: 8px !important; /* Space between icon and text */
+  }
+  
+  /* Make the search input larger on mobile */
+  .navbar__search-input {
+    height: 44px !important; /* Larger height */
+    font-size: 16px !important; /* Prevent zoom on iOS */
+    padding: 0 16px !important; /* More padding */
+  }
+  
+  /* Mobile Safari specific fixes */
+  @supports (-webkit-touch-callout: none) {
+    .DocSearch-Button {
+      background-color: hsl(var(--background)) !important; /* Fully opaque on Safari mobile */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15) !important; /* More prominent shadow */
+      border: 2px solid hsl(var(--foreground) / 0.3) !important; /* More visible border */
+    }
+    
+    .navbar__search-input {
+      background-color: hsl(var(--background)) !important; /* Fully opaque on Safari mobile */
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.15) !important; /* More prominent inner shadow */
+      border: 2px solid hsl(var(--foreground) / 0.3) !important; /* More visible border */
+    }
   }
 }
 
@@ -2175,6 +2233,25 @@ html {
   max-width: 400px;
   width: 100%;
   z-index: 1;
+}
+
+/* Make search more prominent on mobile */
+@media (max-width: 768px) {
+  .navbar__items--center {
+    position: relative;
+    left: auto;
+    transform: none;
+    max-width: 100%;
+    padding: 0 8px;
+  }
+  
+  .navbar__search {
+    width: 100%;
+  }
+  
+  .navbar__search .DocSearch-Button {
+    width: 100% !important;
+  }
 }
 
 /* Right section - Links */
