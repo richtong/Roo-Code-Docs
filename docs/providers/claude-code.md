@@ -99,11 +99,15 @@ export CLAUDE_CODE_MAX_OUTPUT_TOKENS=32768  # Set to 32k tokens
 The Claude Code provider supports these Claude models:
 
 - **Claude Opus 4.1** (Most capable)
-- **Claude Opus 4** 
+- **Claude Opus 4**
 - **Claude Sonnet 4** (Latest, recommended)
 - **Claude 3.7 Sonnet**
-- **Claude 3.5 Sonnet**
-- **Claude 3.5 Haiku** (Fast responses)
+
+:::note Legacy models
+These older models may still be available via the Claude CLI depending on your subscription, but are no longer recommended in new setups:
+- Claude 3.5 Sonnet
+- Claude 3.5 Haiku
+:::
 
 The specific models available depend on your Claude CLI subscription and plan.
 

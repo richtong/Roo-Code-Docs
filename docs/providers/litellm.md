@@ -133,7 +133,7 @@ When you configure the LiteLLM provider, Roo Code interacts with your LiteLLM se
     *   `supportsImages`: Determined from `model_info.supports_vision` provided by LiteLLM.
     *   `supportsPromptCache`: Determined from `model_info.supports_prompt_caching` provided by LiteLLM.
     *   `inputPrice` / `outputPrice`: Calculated from `model_info.input_cost_per_token` and `model_info.output_cost_per_token` from LiteLLM.
-    *   `supportsComputerUse`: This flag is set to `true` if the underlying model identifier (from `litellm_params.model`, e.g., `openrouter/anthropic/claude-3.5-sonnet`) matches one of the Anthropic models predefined in Roo Code as suitable for "computer use" (see `COMPUTER_USE_MODELS` in technical details).
+    *   `supportsComputerUse`: This flag is set to `true` if the underlying model identifier (from `litellm_params.model`, e.g., `openrouter/anthropic/claude-3.7-sonnet-20250219`) matches one of the Anthropic models predefined in Roo Code as suitable for "computer use" (see `COMPUTER_USE_MODELS` in technical details).
 
 Roo Code uses default values for some of these properties if they are not explicitly provided by your LiteLLM server's `/model/info` endpoint for a given model. The defaults are:
 *   `maxTokens`: 8192
