@@ -17,7 +17,8 @@ import {
   CAREERS_URL,
   WEBSITE_PRIVACY_URL,
   EXTENSION_PRIVACY_URL,
-  GITHUB_REPO_URL
+  GITHUB_REPO_URL,
+  ROOCODE_OG_IMAGE_ENDPOINT
 } from './src/constants';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -301,13 +302,15 @@ const config: Config = {
       {name: 'twitter:creator', content: '@roo_code'},
       {property: 'og:type', content: 'website'},
       {property: 'og:locale', content: 'en_US'},
+      {property: 'og:image', content: `${ROOCODE_OG_IMAGE_ENDPOINT}?title=${encodeURIComponent('Roo Code Docs')}&description=${encodeURIComponent('AI-powered autonomous coding agent for VS Code - Complete documentation, guides, and tutorials')}`},
+      {name: 'twitter:image', content: `${ROOCODE_OG_IMAGE_ENDPOINT}?title=${encodeURIComponent('Roo Code Docs')}&description=${encodeURIComponent('AI-powered autonomous coding agent for VS Code - Complete documentation, guides, and tutorials')}`},
     ],
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
-    image: 'img/social-share.jpg', // Default Open Graph image
+    image: `${ROOCODE_OG_IMAGE_ENDPOINT}?title=${encodeURIComponent('Roo Code Docs')}&description=${encodeURIComponent('AI-powered autonomous coding agent for VS Code - Complete documentation, guides, and tutorials')}`, // Default Open Graph image
     navbar: {
       logo: {
         alt: 'Roo Code Logo',

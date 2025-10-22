@@ -9,7 +9,7 @@ keywords:
   - AI pair programmer
   - code generation
   - documentation
-image: /img/social-share.jpg
+image: https://roocode.com/api/og?title=Roo%20Code%20Docs&description=AI-powered%20autonomous%20coding%20agent%20for%20VS%20Code%20-%20Complete%20documentation%2C%20guides%2C%20and%20tutorials
 ---
 
 # Roo Code Docs
