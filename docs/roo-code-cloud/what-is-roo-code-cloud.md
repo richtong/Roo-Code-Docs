@@ -9,7 +9,6 @@ keywords:
   - collaboration
   - task history
   - usage analytics
-image: /img/social-share.jpg
 ---
 
 # What is Roo Code Cloud?

@@ -10,7 +10,6 @@ keywords:
   - diff view
   - line ranges
   - VS Code AI
-image: /img/social-share.jpg
 ---
 
 # search_and_replace

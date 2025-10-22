@@ -6,7 +6,6 @@ keywords:
   - command execution
   - shell configuration
   - troubleshooting
-image: /img/social-share.jpg
 ---
 
 # Terminal Shell Integration

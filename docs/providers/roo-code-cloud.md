@@ -10,7 +10,6 @@ keywords:
   - free ai models
   - cloud authentication
   - no api key
-image: /img/social-share.jpg
 ---
 
 # Roo Code Cloud Provider - FREE AI Models

@@ -8,7 +8,6 @@ keywords:
   - deepseek
   - qwen
   - mistral
-image: /img/social-share.jpg
 ---
 
 # IO Intelligence Provider

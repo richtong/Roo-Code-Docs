@@ -7,7 +7,6 @@ keywords:
   - Roo Code tools
   - code insertion
   - file editing
-image: /img/social-share.jpg
 ---
 
 # insert_content
